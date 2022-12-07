@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+
+body {
+    background-image: url("assets/images/fondo-patitos.jpg");
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.btn {
+    display: inline-block;
+    color: white;
+    padding: 0.6em 2em;
+    border-radius: 1em;
+    text-decoration: none;
+    background-color: #283747;
+}
+
+.color-error{
+    background-color: #E74C3C;
+    color: white;
+}
+
+.color-warning{
+    background-color: #F39C12;
+    color: white;
+}
+
+.color-ok{
+    background-color: #1E8449;
+    color: white;   
+}
+
+.contenedor--options{
+    max-width: 70em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+}
+
+.mensaje--center{
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}

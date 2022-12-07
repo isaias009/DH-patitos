@@ -1,0 +1,44 @@
+<table class="table-tag-header" *ngIf="sizeData !== 0">
+    <tr class="table-tag-header--tr">
+        <th class="table-tag-header--tr--th">Id</th>
+        <th class="table-tag-header--tr--th">Color</th>
+        <th class="table-tag-header--tr--th">Tamaño</th>
+        <th class="table-tag-header--tr--th">Precio</th>
+        <th class="table-tag-header--tr--th">Cantidad</th>
+        <th class="table-tag-header--tr--th">Acciones</th>
+    </tr>
+</table>
+
+
+<p *ngIf="sizeData === 0" class="mensaje--center">No se tiene ningun patito registrado</p>
+
+<section class="table">
+    <!-- {{ patitoData | json }} -->
+    <table class="table-tag">
+        <tr class="table-tag--tr" *ngFor="let item of patitoData$ | async ">
+            
+            <td class="table-tag--tr--td">{{item.id}}</td>
+            <td class="table-tag--tr--td">{{item.color}}</td>
+            <td class="table-tag--tr--td">{{item.size}}</td>
+
+            <td class="table-tag--tr--td">
+                <span *ngIf="editable != item.id">{{item.precio}}</span>
+                <input type="number" *ngIf="editable == item.id" class="table-tag--input-edit" value={{item.precio}} [(ngModel)]="precio" placeholder="Editar precio" required/>
+            </td>
+
+            <td class="table-tag--tr--td">
+                <span *ngIf="editable != item.id">{{item.cantidad}}</span>
+                <input type="number" *ngIf="editable == item.id" class="table-tag--input-edit" value={{item.cantidad}} [(ngModel)]="cantidad" placeholder="Editar cantidad" required/>
+            </td>
+            <td class="table-tag--tr--actions">
+                <button *ngIf="editable != item.id" (click)="checkEditable(item.id)" class="table-tag--tr--actions--btn color-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button *ngIf="editable != item.id" (click)="confirmar(item.id)" class="table-tag--tr--actions--btn color-error"><i class="fa-solid fa-trash-can"></i></button>
+                
+                <button *ngIf="editable == item.id" (click)="checkEditable(-1)" class="table-tag--tr--actions--btn color-error"><i class="fa-solid fa-xmark"></i></button>
+                <button *ngIf="editable == item.id" (click)="editar(item)" class="table-tag--tr--actions--btn color-ok"><i class="fa-solid fa-check"></i></button>
+
+            </td>
+        </tr>
+    </table>
+
+</section>
